@@ -33,4 +33,4 @@ Whilst we do not expect contributions to this plugin, we would appreciate report
 
 ## License
 
-See [LICENSE.md](LICENSE.md)
+See [LICENSE](LICENSE)
