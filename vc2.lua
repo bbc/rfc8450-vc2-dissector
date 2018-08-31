@@ -33,8 +33,8 @@ do
     local F = vc2.fields
 
     F.ESN = ProtoField.uint16("vc2.ExtendedSequenceNumber","Extended Sequence Number",base.HEX,nil)
-    F.BEG = ProtoField.bool("vc2.B","First Byte of Aux/Pad",8,{"True","False"},0x80)
-    F.END = ProtoField.bool("vc2.E","Final Byte of Aux/Pad",8,{"True","False"},0x40)
+    F.BEG = ProtoField.bool("vc2.B","First Byte of Aux",8,{"True","False"},0x80)
+    F.END = ProtoField.bool("vc2.E","Final Byte of Aux",8,{"True","False"},0x40)
     F.INT = ProtoField.bool("vc2.I","Picture Coding Mode",8,{"Interlaced","Progressive"},0x02)
     F.FID = ProtoField.bool("vc2.F","Field Identification",8,{"Second field","First field"},0x01)
     F.PC  = ProtoField.uint8("vc2.ParseCode", "Parse Code", base.HEX, { [0x00] = "Sequence Parameters", [0x10] = "End of Sequence", [0x20] = "Auxiliary Data", [0x30] = "Padding Data", [0xEC] = "HQ Picture Fragment" })
@@ -69,7 +69,7 @@ do
        elseif PC == 0x20 or PC == 0x30 then
           datalength = tvb(4,4):uint()
           subtree:add(F.datalength, tvb(4,4))
-          if datalength > 0 then
+          if PC == 0x20 and datalength > 0 then
               subtree:add(F.payloaddata, tvb(8))
           end
        elseif PC == 0xEC then
