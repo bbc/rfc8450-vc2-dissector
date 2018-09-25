@@ -1,10 +1,10 @@
-# rfcxxxx-vc2-dissector
+# rfc8450-vc2-dissector
 
 Wireshark plugin to parse RTP streams implementing the VC-2 HQ payload specification
 
 ## Introduction
 
-This plugin accompanies the release of [RFC XXXX](https://datatracker.ietf.org/doc/draft-ietf-payload-rtp-vc2hq/) which defines the mechanism to carry VC-2 HQ coded video using Real Time Protocol (RTP).
+This plugin accompanies the release of [RFC 8450](https://datatracker.ietf.org/doc/draft-ietf-payload-rtp-vc2hq/) which defines the mechanism to carry VC-2 HQ coded video using Real Time Protocol (RTP).
 
 Using this plugin in conjunction with the [Wireshark protocol analyzer](https://www.wireshark.org/) provides the means to verify that an implementation is correctly producing the required header fields for the VC-2 RTP packets.
 
